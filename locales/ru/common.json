@@ -1,0 +1,19 @@
+{
+    "start_screen": {
+        "next": "Дальше",
+        "back": "Назад",
+        "ready": "Готово"
+    },
+    "tabs": {
+        "home": "Главная",
+        "search": "Поиск",
+        "profile": "Профиль"
+    },
+    "see_also": "Так же гляньте",
+    "close": "Закрыть",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "kazakh": "Қазақша",
+    "russian": "Русский",
+    "english": "English"
+}

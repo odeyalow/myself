@@ -1,0 +1,48 @@
+﻿{
+    "main_info": {
+        "title": "Let's get to know each other",
+        "name": "Name",
+        "age": "Age"
+    },
+    "about_user": {
+        "title": "What's your situation now?",
+        "studies": {
+            "label": "Studies",
+            "option_1": "Not studying",
+            "option_2": "Want to enroll",
+            "option_3": "Studying"
+        },
+        "work": {
+            "label": "Work",
+            "option_1": "Not working",
+            "option_2": "Looking for a job",
+            "option_3": "Working",
+            "option_4": "Part-time work"
+        },
+        "living": {
+            "label": "Living situation",
+            "option_1": "Living with parents",
+            "option_2": "Living alone",
+            "option_3": "Living with someone"
+        },
+        "worryings": {
+            "label": "What worries you now?",
+            "option_1": "Don't know my rights",
+            "option_2": "Not good with household stuff",
+            "option_3": "Not enough money",
+            "option_4": "Don't understand documents"
+        }, 
+        "importants": {
+            "label": "What is important to you?",
+            "option_1": "Find a job",
+            "option_2": "Understand finances",
+            "option_3": "Live independently",
+            "option_4": "Know my rights",
+            "option_5": "Enroll in studies"
+        }
+    },
+    "getting_ready": {
+        "title": "Almost ready!",
+        "description": "We're gathering recommendations so you can find what you need faster and feel more confident."
+    }
+}

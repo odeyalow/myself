@@ -1,0 +1,23 @@
+﻿{
+    "slide_1": {
+        "title": "Adult life doesn't come with instructions",
+        "description": "Work, money, everyday life, documents — all of it shows up suddenly, and there's often no one to ask.",
+        "subtext": "We've been there."
+    },
+    "slide_2": {
+        "title": "Here is what people usually learn through mistakes",
+        "description": "Simple explanations, real situations, and answers to questions people google at night.",
+        "subtext": "Short. Clear. To the point."
+    },
+    "slide_3": {
+        "title": "Now you can handle it yourself",
+        "description": "Watched, learned, and did it — yourself!",
+        "start": "Get started"
+    },
+    "pre_auth": {
+        "title": "Want us to tailor it for you?",
+        "subtext": "Signing in is optional, only needed for personalization!",
+        "skip": "Skip",
+        "letsgo": "Let's go"
+    }
+}

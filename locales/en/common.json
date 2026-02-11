@@ -1,0 +1,19 @@
+﻿{
+    "start_screen": {
+        "next": "Next",
+        "back": "Back",
+        "ready": "Done"
+    },
+    "tabs": {
+        "home": "Home",
+        "search": "Search",
+        "profile": "Profile"
+    },
+    "see_also": "Also take a look",
+    "close": "Close",
+    "cancel": "Cancel",
+    "save": "Save",
+    "kazakh": "Kazakh",
+    "russian": "Russian",
+    "english": "English"
+}

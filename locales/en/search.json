@@ -1,0 +1,11 @@
+﻿{
+    "title": "Search for answers",
+    "placeholder": "What are you interested in?",
+    "materials": "Materials",
+    "categories": "Categories",
+    "no_result": {
+        "title": "Didn't find what you were looking for?",
+        "text": "Send us your question or idea!",
+        "suggest_btn": "Suggest"
+    }
+}
