@@ -12,7 +12,7 @@ export default {
       [
         "expo-splash-screen",
         {
-          image: "./assets/Logo.svg",
+          image: "./assets/icons/app/default.png",
           imageWidth: 220,
           resizeMode: "contain",
           backgroundColor: "#141414"
@@ -21,7 +21,7 @@ export default {
     ],
     splash: {
       resizeMode: "contain",
-      image: "./assets/Logo.svg",
+      image: "./assets/icons/app/default.png",
       backgroundColor: "#141414"
     },
     ios: {
