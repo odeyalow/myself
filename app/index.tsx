@@ -2,6 +2,8 @@ import { View, useWindowDimensions } from "react-native";
 import AppText from "@/components/ui/appText";
 import RoudedButton from "@/components/ui/roundedButton";
 
+import { Redirect } from "expo-router";
+
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "expo-router";
@@ -48,6 +50,8 @@ const SUBTEXT_ANIMATIONS = {
 }
 
 export default function Index() {
+  Redirect({href: '/(tabs)/home'});
+
   const { replace, push } = useRouter();
   const [slide, setSlide] = useState(1);
   const { t } = useTranslation('welcome');
