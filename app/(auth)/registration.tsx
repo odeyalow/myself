@@ -14,7 +14,7 @@ type ErrorMessageType = 'fill_all_fields' | 'pass_missmatch' | 'incorrect_email_
 export default function RegistrationScreen() {
   const { t } = useTranslation(['auth', 'common']);
   const { push, back } = useRouter();
-  const [emailOrNumber, setEmailOrNumber] = useState<string>();
+  const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [confirmPassword, setConfirmPassword] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<ErrorMessageType>(null);
@@ -22,16 +22,16 @@ export default function RegistrationScreen() {
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}$/;
 
   const handleValidation = () => {
-    const login = emailOrNumber?.trim() ?? "";
+    const login = email?.trim() ?? "";
     const pass = password?.trim() ?? "";
     const confirm = confirmPassword?.trim() ?? "";
 
-    if (!login || !pass || !confirm) {
+    if (!login || !pass) {
       setErrorMessage("fill_all_fields");
       return;
     }
 
-    if (isNaN(Number(login)) && !emailRegex.test(login)) {
+    if (!emailRegex.test(login)) {
       setErrorMessage("incorrect_email_format");
       return;
     }
@@ -63,11 +63,11 @@ export default function RegistrationScreen() {
           {t('registration.title')}
         </AppText>
         <Input
-        value={emailOrNumber}
+        value={email}
         appearance="dark"
-        placeholder={t('login_placeholder')}
+        placeholder={t('email')}
         keyboardType={'default'}
-        onChangeText={setEmailOrNumber}
+        onChangeText={setEmail}
         />
         <Input
         value={password}

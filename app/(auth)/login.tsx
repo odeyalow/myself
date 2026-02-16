@@ -5,12 +5,37 @@ import Button from "@/components/ui/button";
 
 import { useTranslation } from "react-i18next";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 
 import TextLogo from '@/assets/logos/TextLogo.svg';
 
+type ErrorMessageType = 'fill_all_fields' | 'incorrect_email_format' | 'not_enough_pass_symbols' | null;
+
 export default function RegistrationScreen() {
   const { t } = useTranslation(['auth', 'common']);
-  const { push, back, replace } = useRouter();
+  const { push, back } = useRouter();
+  const [email, setEmail] = useState<string>();
+  const [password, setPassword] = useState<string>();
+  const [errorMessage, setErrorMessage] = useState<ErrorMessageType>(null);
+
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}$/;
+
+  const handleValidation = () => {
+    const login = email?.trim() ?? "";
+    const pass = password?.trim() ?? "";
+
+    if (!login || !pass) {
+      setErrorMessage("fill_all_fields");
+      return;
+    }
+
+    if (!emailRegex.test(login)) {
+      setErrorMessage("incorrect_email_format");
+      return;
+    }
+
+    setErrorMessage(null);
+  }
 
   return (
     <View className="bg-dark h-full p-[25px] pt-0 flex-col items-center">
@@ -26,26 +51,30 @@ export default function RegistrationScreen() {
           {t('login.title')}
         </AppText>
         <Input
+        value={email}
         appearance="dark"
-        placeholder={t('login_placeholder')}
-        keyboardType="default"
-        onChangeText={() => {}}
+        placeholder={t('email')}
+        keyboardType={'default'}
+        onChangeText={setEmail}
         />
         <Input
+        value={password}
         isPassword
         appearance="dark"
         placeholder={t('password')}
         keyboardType="default"
-        onChangeText={() => {}}
+        onChangeText={setPassword}
         />
-        {/* ERROR MESSAGE TEXT */}
-          {/* <AppText
-          weight="regular"
-          size="description"
-          color="error">
-            Some Error Text Placeholder
-          </AppText> */}
-        {/* ERROR MESSAGE TEXT */}
+        {
+          errorMessage && (
+            <AppText
+            weight="regular"
+            size="description"
+            color="error">
+              {t(`validation.${errorMessage}`)}
+            </AppText>
+          )
+        }
        <View className="flex-row justify-between">
          <TouchableOpacity
             onPress={() => push("/(auth)/login")}>
@@ -79,14 +108,14 @@ export default function RegistrationScreen() {
             </AppText>
           </Button>
           <Button
-          onPress={() => push('/(auth)/login')}
+          onPress={() => handleValidation()}
           appearance="light"
           fullWidth>
             <AppText
             weight="semibold"
             size="text"
             color="commonDark">
-            {t('start_screen.next', { ns: 'common' })}
+            {t('login.button')}
             </AppText>
           </Button>
         </View>

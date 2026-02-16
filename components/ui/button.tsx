@@ -32,7 +32,7 @@ const Button = ({ onPress, appearance, fullWidth, disabled, className, children 
 
     return (
         <AnimatedPressable
-        onPressIn={() => scale.value = withSpring(0.9, {duration: 100})}
+        onPressIn={() => scale.value = withSpring(0.95, {duration: 100})}
         onPressOut={() => scale.value = withSpring(1, {duration: 100})}
         style={style}
         disabled={disabled}
