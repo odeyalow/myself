@@ -14,7 +14,7 @@ import { ColorVariants } from "./appText";
 
 interface Props {
     onPress?: () => void;
-    type: 'light' | 'dark' | 'muted';
+    appearance: 'light' | 'dark' | 'muted';
     disabled?: boolean
     fullWidth?: boolean
     icon?: React.ReactNode;
@@ -25,7 +25,7 @@ interface Props {
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 const PRESS_LOCK_MS = 300;
 
-const BUTTON_STYLES = {
+const BUTTON_APPEARANCES = {
     light: {
         bg: 'bg-white',
         text: 'commonDark'
@@ -40,7 +40,7 @@ const BUTTON_STYLES = {
     },
 }
 
-const RoudedButton = ({ onPress, type, disabled, fullWidth, icon, className, children }: Props) => {
+const RoudedButton = ({ onPress, appearance, disabled, fullWidth, icon, className, children }: Props) => {
     const [isPressLocked, setIsPressLocked] = useState(false);
     const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const scale = useSharedValue(1);
@@ -86,12 +86,12 @@ const RoudedButton = ({ onPress, type, disabled, fullWidth, icon, className, chi
             style={style}
             disabled={isDisabled}
             onPress={handlePress}
-            className={`p-[20px] rounded-full h-[60px] flex-row justify-center items-center gap-[10px] ${BUTTON_STYLES[type].bg} ${fullWidth ? 'w-full' : ''} ${className ?? ''}`}
+            className={`p-[20px] rounded-full h-[60px] flex-row justify-center items-center gap-[10px] ${BUTTON_APPEARANCES[appearance].bg} ${fullWidth ? 'w-full' : ''} ${className ?? ''}`}
             >
                 <AppText
                 size="text"
                 weight="semibold"
-                color={BUTTON_STYLES[type].text as ColorVariants}
+                color={BUTTON_APPEARANCES[appearance].text as ColorVariants}
                 className="text-center leading-[20px]">
                     {children}
                 </AppText>

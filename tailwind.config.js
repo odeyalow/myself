@@ -12,7 +12,8 @@ module.exports = {
         lightGray: "#F6F6F6",
         gray: "#747474",
         darkGray: "#1F1F1F",
-        dark: "#141414"
+        dark: "#141414",
+        red: "#BA2B2B"
       },
       fontFamily: {
         montserrat: ['Montserrat']

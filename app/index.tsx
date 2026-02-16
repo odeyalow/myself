@@ -228,7 +228,7 @@ export default function Index() {
                 {
                   slide > 1 && (
                     <RoudedButton
-                    type="light"
+                    appearance="light"
                     onPress={() => setSlide((prev) => Math.max(prev - 1, 1))}
                     >
                       <ArrowLeftIcon width={20} height={20} color="#1F1F1F"/>
@@ -236,7 +236,7 @@ export default function Index() {
                   )
                 }
                 <RoudedButton
-                type="light"
+                appearance="light"
                 fullWidth={slide === 3 && true}
                 onPress={() => setSlide((prev) => Math.min(prev + 1, 4))}
                 >
@@ -268,17 +268,17 @@ export default function Index() {
               </AppText>
               <View className="flex-row items-center justify-between gap-[10px]">
                 <RoudedButton
-                type="muted"
+                appearance="muted"
                 fullWidth
                 onPress={() => replace('/(tabs)/home')}
                 >
                   {t('pre_auth.skip')}
                 </RoudedButton>
                 <RoudedButton
-                type="light"
+                appearance="light"
                 fullWidth
                 icon={<LoginIcon width={22.5} height={22.5}/>}
-                onPress={() => push('/auth')}
+                onPress={() => push('/(auth)/registration')}
                 >
                   {t('pre_auth.letsgo')}
                 </RoudedButton>
