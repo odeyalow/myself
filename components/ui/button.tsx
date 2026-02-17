@@ -37,7 +37,7 @@ const Button = ({ onPress, appearance, fullWidth, disabled, className, children 
         style={style}
         disabled={disabled}
         onPress={onPress}
-        className={`rounded-[14px] min-h-[54px] flex-row justify-center items-center ${BUTTON_APPEARANCES[appearance]} ${fullWidth ? 'w-full flex-1' : ''} ${className ?? ''}`}
+        className={`rounded-[14px] min-h-[54px] px-[16px] flex-row justify-center items-center ${BUTTON_APPEARANCES[appearance]} ${fullWidth ? 'w-full flex-1' : ''} ${className ?? ''}`}
         >
             {children}
         </AnimatedPressable>

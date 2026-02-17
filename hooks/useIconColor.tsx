@@ -1,9 +1,16 @@
 import { useColorScheme } from "nativewind";
 
-const useIconColor = () => {
+const useIconColor = (invertColor?: boolean) => {
     const { colorScheme } = useColorScheme();
-    const color = colorScheme === 'light' ? '#141414' : '#F6F6F6';
-    return color;
+    const isLight = colorScheme === "light";
+
+    return invertColor
+        ? isLight
+        ? "#F6F6F6"
+        : "#141414"
+        : isLight
+        ? "#141414"
+        : "#F6F6F6";
 }
  
 export default useIconColor;

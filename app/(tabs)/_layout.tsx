@@ -23,7 +23,7 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarButton: (props) => <SpringTabButton {...props} />,
         tabBarStyle: TAB_BAR_STYLE,
-        tabBarHideOnKeyboard: true,
+        // tabBarHideOnKeyboard: true,
       }}
     >
       <Tabs.Screen

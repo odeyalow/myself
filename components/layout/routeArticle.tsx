@@ -19,7 +19,7 @@ type ArticleType = {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-const FastRecomendationBlock = ({ title, category, chapter }: ArticleType) => {
+const RouteArticle = ({ title, category, chapter }: ArticleType) => {
     const color = useIconColor();
     const scale = useSharedValue(1);
     const style = useAnimatedStyle(() => ({
@@ -46,7 +46,7 @@ const FastRecomendationBlock = ({ title, category, chapter }: ArticleType) => {
                     color="muted">
                         {chapter}
                     </AppText>
-                    <ArrowRightIcon width={10} height={10} color="#747474"/>
+                    <ArrowRightIcon width={12} height={12} color="#747474"/>
                     <AppText
                     weight="semibold"
                     size="description"
@@ -60,4 +60,4 @@ const FastRecomendationBlock = ({ title, category, chapter }: ArticleType) => {
     );
 }
  
-export default FastRecomendationBlock;
+export default RouteArticle;

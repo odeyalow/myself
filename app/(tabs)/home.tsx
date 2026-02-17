@@ -5,7 +5,7 @@ import Button from "@/components/ui/button";
 import ScreenWrapper from "@/components/layout/screenWrapper";
 import TitleBlock from "@/components/layout/titleBlock";
 import ChapterCard from "@/components/layout/chapterCard";
-import FastRecomendationBlock from "@/components/layout/fastRecomendationBlock";
+import RouteArticle from "@/components/layout/routeArticle";
 
 import { useState } from "react";
 import { useRouter } from "expo-router";
@@ -25,14 +25,7 @@ import useIconColor from "@/hooks/useIconColor";
 import { useTranslation } from "react-i18next";
 import AppText from "@/components/ui/appText";
 
-export default function HomeTab() {
-  const color = useIconColor();
-  const { t } = useTranslation('home');
-  const [showWelcomeCard, setShowWelcomeCard] = useState(true);
-  const { push } = useRouter();
-  const layoutTransition = LinearTransition.springify();
-
-  const CHAPTERS_PLACHOLDER_DATA = [
+const CHAPTERS_PLACHOLDER_DATA = [
     {
       title: 'Home', icon: HomeIcon, categories: [
         { title: 'Cleaning'
@@ -129,29 +122,36 @@ export default function HomeTab() {
         },
       ]
     }
-  ];
-  const ARTICLE_PLACEHOLDER_DATA = [
-    {
-      title: 'How to keep the house clean?',
-      category: 'Cleaning',
-      chapter: 'Home'
-    },
-    {
-      title: 'Look at these 3 things when choosing a job!',
-      category: 'Searching',
-      chapter: 'Job'
-    },
-    {
-      title: 'How to maintain hygiene?',
-      category: 'Health',
-      chapter: 'Life'
-    },
-    {
-      title: 'Do you want to get a pet?',
-      category: 'Neighborhood',
-      chapter: 'Home'
-    },
-  ];
+];
+const ARTICLE_PLACEHOLDER_DATA = [
+  {
+    title: 'How to keep the house clean?',
+    category: 'Cleaning',
+    chapter: 'Home'
+  },
+  {
+    title: 'Look at these 3 things when choosing a job!',
+    category: 'Searching',
+    chapter: 'Job'
+  },
+  {
+    title: 'How to maintain hygiene?',
+    category: 'Health',
+    chapter: 'Life'
+  },
+  {
+    title: 'Do you want to get a pet?',
+    category: 'Neighborhood',
+    chapter: 'Home'
+  },
+];
+
+export default function HomeTab() {
+  const color = useIconColor();
+  const { t } = useTranslation('home');
+  const [showWelcomeCard, setShowWelcomeCard] = useState(true);
+  const { push } = useRouter();
+  const layoutTransition = LinearTransition.springify();
 
   return (
     <ScreenWrapper className="flex-col gap-[15px]">
@@ -229,7 +229,7 @@ export default function HomeTab() {
           {
             ARTICLE_PLACEHOLDER_DATA.map((article, index) => {
               return (
-                <FastRecomendationBlock
+                <RouteArticle
                 key={index}
                 title={article.title}
                 category={article.category}

@@ -2,6 +2,7 @@ import { TouchableOpacity, View } from "react-native";
 import AppText from "@/components/ui/appText";
 import Input from "@/components/ui/input";
 import Button from "@/components/ui/button";
+import KeyboardDismissView from "@/components/layout/keyboardDismissView";
 
 import { useTranslation } from "react-i18next";
 import { useRouter } from "expo-router";
@@ -38,7 +39,7 @@ export default function RegistrationScreen() {
   }
 
   return (
-    <View className="bg-dark h-full p-[25px] pt-0 flex-col items-center">
+    <KeyboardDismissView className="bg-dark h-full p-[25px] pt-0 flex-col items-center">
       <View className="mt-[50px] mb-[35px]">
         <TextLogo width={124} height={28.98} color="#fff"/>
       </View>
@@ -120,6 +121,6 @@ export default function RegistrationScreen() {
           </Button>
         </View>
       </View>
-    </View>
+    </KeyboardDismissView>
   );
 }
