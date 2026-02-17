@@ -1,7 +1,6 @@
-import { View, useWindowDimensions } from "react-native";
+import { View, useWindowDimensions, StatusBar } from "react-native";
 import AppText from "@/components/ui/appText";
 import RoudedButton from "@/components/ui/roundedButton";
-
 import { Redirect } from "expo-router";
 
 import { useState, useEffect } from "react";
@@ -115,6 +114,7 @@ export default function Index() {
 
   return (
     <View className="bg-dark h-full p-[25px] flex-col justify-end items-center">
+      <StatusBar barStyle='light-content' />
       <View className="absolute top-[50px] left-0 right-0 items-center z-10">
         <TextLogo width={124} height={28.98} color="#fff"/>
       </View>

@@ -1,10 +1,13 @@
 import { View, Text } from "react-native";
+import TabScreenScale from "@/components/layout/tabScreenScale";
 
 const SearchTab = () => {
     return (
-        <View>
-            <Text>Search Tab</Text>
-        </View>
+        <TabScreenScale>
+            <View>
+                <Text>Search Tab</Text>
+            </View>
+        </TabScreenScale>
     );
 }
  

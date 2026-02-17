@@ -1,10 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Pressable, type PressableProps, StyleSheet } from "react-native";
 import Animated, {
   interpolateColor,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
   withTiming,
 } from "react-native-reanimated";
 import type { SvgProps } from "react-native-svg";
@@ -12,6 +11,10 @@ import type { SvgProps } from "react-native-svg";
 const ACTIVE_COLOR = "#FFFFFF";
 const INACTIVE_COLOR = "#747474";
 const ICON_SIZE = 22;
+const TAB_PRESS_SCALE = 0.965;
+const PRESS_IN_DURATION = 90;
+const PRESS_OUT_DURATION = 170;
+const NAVIGATION_DELAY = 70;
 
 type TabIconComponent = React.ComponentType<SvgProps>;
 
@@ -27,6 +30,16 @@ export const TAB_BAR_STYLE = {
 
 export function SpringTabButton(props: PressableProps) {
   const scale = useSharedValue(1);
+  const delayedPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const holdPressedState = useRef(false);
+
+  useEffect(() => {
+    return () => {
+      if (delayedPressTimer.current) {
+        clearTimeout(delayedPressTimer.current);
+      }
+    };
+  }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
@@ -36,12 +49,35 @@ export function SpringTabButton(props: PressableProps) {
     <AnimatedPressable
       {...props}
       onPressIn={(event) => {
-        scale.value = withSpring(0.88, { damping: 14, stiffness: 300, mass: 0.35 });
+        scale.value = withTiming(TAB_PRESS_SCALE, { duration: PRESS_IN_DURATION });
         props.onPressIn?.(event);
       }}
       onPressOut={(event) => {
-        scale.value = withSpring(1, { damping: 16, stiffness: 260, mass: 0.4 });
+        if (!holdPressedState.current) {
+          scale.value = withTiming(1, { duration: PRESS_OUT_DURATION });
+        }
         props.onPressOut?.(event);
+      }}
+      onPress={(event) => {
+        if (delayedPressTimer.current) {
+          clearTimeout(delayedPressTimer.current);
+        }
+
+        const isSelected = Boolean(props.accessibilityState?.selected);
+        if (isSelected) {
+          scale.value = withTiming(1, { duration: PRESS_OUT_DURATION });
+          props.onPress?.(event);
+          return;
+        }
+
+        holdPressedState.current = true;
+        event.persist?.();
+        delayedPressTimer.current = setTimeout(() => {
+          props.onPress?.(event);
+          scale.value = withTiming(1, { duration: PRESS_OUT_DURATION });
+          holdPressedState.current = false;
+          delayedPressTimer.current = null;
+        }, NAVIGATION_DELAY);
       }}
       style={[props.style, animatedStyle]}
     >

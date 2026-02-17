@@ -4,7 +4,7 @@ import { StyleProp, TextStyle } from "react-native";
 
 type SizeVariants = 'bigTitle' | 'mediumTitle' | 'smallTitle' | 'text' | 'description' | 'subtext';
 type WeightVariants = 'regular' | 'semibold' | 'bold' | 'extrabold';
-export type ColorVariants = 'commonLight' | 'commonDark' | 'muted' | 'error';
+export type ColorVariants = 'commonLight' | 'commonDark' | 'forceLight' | 'forceDark' | 'muted' | 'error';
 type AnimatedTextProps = ComponentProps<typeof Animated.Text>;
 
 export interface AppTextProps extends Omit<AnimatedTextProps, "style" | "children"> {
@@ -34,7 +34,9 @@ const WEIGHTS = {
 
 const COLORS = {
     commonLight: 'text-light dark:text-lightGray',
-    commonDark: 'text-dark dark:text-dark',
+    commonDark: 'text-dark dark:text-light',
+    forceLight: 'text-light',
+    forceDark: 'text-dark',
     muted: 'text-gray',
     error: 'text-red'
 }

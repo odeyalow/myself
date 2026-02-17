@@ -16,10 +16,10 @@ interface ButtonProps {
 }
 
 const BUTTON_APPEARANCES = {
-    light: "bg-light",
-    dark: "bg-dark",
-    accentLight: "bg-lightGray",
-    accentDark: "bg-darkGray"
+    light: "bg-light dark:bg-dark",
+    dark: "bg-dark dark:bg-light",
+    accentLight: "bg-lightGray dark:bg-darkGray",
+    accentDark: "bg-darkGray dark:bg-lightGray"
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
