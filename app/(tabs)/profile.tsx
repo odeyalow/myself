@@ -81,7 +81,7 @@ const ProfileTab = () => {
                 <Button
                 onPress={() => {}}
                 appearance="dark"
-                className="gap-[10px]">
+                className="gap-[10px] justify-center">
                     <SuggestIcon width={25} height={25} color={color}/>
                     <AppText
                     weight="semibold"

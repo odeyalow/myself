@@ -5,11 +5,13 @@ import Animated, {
     useSharedValue,
     withSpring,
 } from "react-native-reanimated";
+import { useRouter } from "expo-router";
 
 interface Props {
     title: string;
     categories: CategoryType[];
     icon: React.ReactNode;
+    chapterId: string | number;
 }
 
 interface CategoryType {
@@ -19,7 +21,8 @@ interface CategoryType {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-const ChapterCard = ({ title, categories, icon }: Props) => {
+const ChapterCard = ({ title, categories, icon, chapterId }: Props) => {
+    const { push } = useRouter();
     const scale = useSharedValue(1);
     const style = useAnimatedStyle(() => ({
         transform: [{ scale: scale.value }],
@@ -31,6 +34,10 @@ const ChapterCard = ({ title, categories, icon }: Props) => {
 
     return ( 
         <AnimatedPressable
+        onPress={() => push({
+            pathname: "/chapter/[chapterId]",
+            params: { chapterId }
+        })}
         onPressIn={() => scale.value = withSpring(0.95, {duration: 100})}
         onPressOut={() => scale.value = withSpring(1, {duration: 100})}
         style={style}

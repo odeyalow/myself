@@ -214,6 +214,7 @@ export default function HomeTab() {
             {CHAPTERS_PLACHOLDER_DATA.map((chapter, index) => (
             <View key={index} className="w-[48%] mb-[12px]">
               <ChapterCard
+                chapterId={index}
                 title={chapter.title}
                 categories={chapter.categories}
                 icon={<chapter.icon width={25} height={25} color={color} />}

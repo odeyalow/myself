@@ -4,7 +4,7 @@ import { useColorScheme } from "nativewind";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
 
-import { useSegments } from "expo-router";
+import { usePathname } from "expo-router";
 
 import "@/app/globals.css";
 import "@/i18n";
@@ -14,12 +14,12 @@ export default function RootLayout() {
     'Montserrat': require('@/assets/fonts/Montserrat-Variable.ttf')
   })
   const { colorScheme } = useColorScheme();
-  const segments = useSegments();
-  const isTabsRoute = segments[0] === "(tabs)";
+  const pathname = usePathname();
+  const isRootIndexRoute = pathname === "/" || pathname === "/index";
 
-  const STATUSBAR_BG_COLOR = isTabsRoute
-  ? colorScheme === "dark" ? "bg-dark" : "bg-light"
-  : "bg-dark";
+  const STATUSBAR_BG_COLOR = !isRootIndexRoute
+    ? colorScheme === "dark" ? "bg-dark" : "bg-light"
+    : "bg-dark";
 
   
   if (!loaded) {
