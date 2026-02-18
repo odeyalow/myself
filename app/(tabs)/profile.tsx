@@ -78,21 +78,21 @@ const ProfileTab = () => {
             <View className="flex-col gap-[10px]">
                 <SettingsButton text={t('about_app.title')} onPress={() => {}}/>
                 <SettingsButton text={t('logout')} onPress={() => {}}/>
+                <Button
+                onPress={() => {}}
+                appearance="dark"
+                className="gap-[10px]">
+                    <SuggestIcon width={25} height={25} color={color}/>
+                    <AppText
+                    weight="semibold"
+                    size="text"
+                    color="commonLightInverted"
+                    >
+                        {t('suggest')}
+                    </AppText>
+                </Button>
             </View>
         </View>
-        <Button
-        onPress={() => {}}
-        appearance="dark"
-        className="gap-[10px]">
-            <SuggestIcon width={25} height={25} color={color}/>
-            <AppText
-            weight="semibold"
-            size="text"
-            color="commonLightInverted"
-            >
-                {t('suggest')}
-            </AppText>
-        </Button>
         </ScreenWrapper>
     );
 };
