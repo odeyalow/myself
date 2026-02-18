@@ -1,7 +1,6 @@
 ﻿{
     "title": "Profile",
-    "year_1": "years",
-    "year_2": "year",
+    "years_old": "years old",
     "change": "Edit",
     "saved": "Saved",
     "no_saved": "You haven't added anything to saved yet",
@@ -12,11 +11,11 @@
     "about_app": {
         "title": "About the app",
         "text": "This app is made for those who are just starting to figure out adult life.\n\nHere you'll find simple, clear answers to questions most people face: how to live independently, handle everyday tasks, deal with work, money, rights, and everyday situations.\n\nWe don't teach 'how to live right'. We show what usually happens and what to do in real situations.",
-        "subtext": "Important: the information in the app is for general informational purposes and may vary by situation. For complex and legally significant issues, we recommend consulting specialists."
+        "subtext": "Important: the information in the app is for general informational purposes and may vary by situation. For complex and legally significant issues, we recommend consulting specialists.",
+        "version": "Version"
     },
     "logout": "Log out",
     "suggest": "Suggest a question or idea",
-    "version": "Version",
     "changes_applied_alert": "Changes saved!",
     "theme_modal": {
         "title": "Choose theme",
