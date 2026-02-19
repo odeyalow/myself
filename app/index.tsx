@@ -49,8 +49,6 @@ const SUBTEXT_ANIMATIONS = {
 }
 
 export default function Index() {
-  Redirect({href: '/(auth)/gettingReady'});
-
   const { replace, push } = useRouter();
   const [slide, setSlide] = useState(1);
   const { t } = useTranslation('welcome');
