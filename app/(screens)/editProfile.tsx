@@ -9,10 +9,11 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
 const EditProfileScreen = () => {
-    const { t } = useTranslation(['profile', 'knowing', 'common']);
+    const { t } = useTranslation(['profile', 'knowing', 'common', 'auth']);
     const { back } = useRouter();
     const [name, setName] = useState('Алдияр');
     const [age, setAge] = useState('19');
+    const [email, setAEmail] = useState('example@email.com');
 
     return (
         <BackButtonWrapper
@@ -29,6 +30,12 @@ const EditProfileScreen = () => {
             keyboardType="number-pad"
             onChangeText={() => {}}
             value={age}
+            />
+            <Input
+            placeholder={t('email', { ns: 'auth'})}
+            keyboardType="number-pad"
+            onChangeText={() => {}}
+            value={email}
             />
             <View className="flex-row gap-[10px]">
                 <Button

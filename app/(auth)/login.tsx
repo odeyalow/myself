@@ -22,15 +22,15 @@ export default function RegistrationScreen() {
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}$/;
 
   const handleValidation = () => {
-    const login = email?.trim() ?? "";
+    const emailTrimmed = email?.trim() ?? "";
     const pass = password?.trim() ?? "";
 
-    if (!login || !pass) {
+    if (!emailTrimmed || !pass) {
       setErrorMessage("fill_all_fields");
       return;
     }
 
-    if (!emailRegex.test(login)) {
+    if (!emailRegex.test(emailTrimmed)) {
       setErrorMessage("incorrect_email_format");
       return;
     }

@@ -1,10 +1,8 @@
-import { Stack } from "expo-router";
+import { Stack, usePathname, useSegments } from "expo-router";
 import { useFonts } from "expo-font";
 import { useColorScheme } from "nativewind";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
-
-import { usePathname } from "expo-router";
 
 import "@/app/globals.css";
 import "@/i18n";
@@ -16,12 +14,9 @@ export default function RootLayout() {
   })
   const { colorScheme } = useColorScheme();
   const pathname = usePathname();
+  const segments = useSegments();
   const isRootIndexRoute = pathname === "/" || pathname === "/index";
-  const isAuthRoute =
-    pathname.startsWith("/(auth)/") ||
-    pathname === "/login" ||
-    pathname === "/registration" ||
-    pathname === "/passwordReset";
+  const isAuthRoute = segments[0] === "(auth)";
   const isDarkStatusArea = isRootIndexRoute || isAuthRoute;
 
   const STATUSBAR_BG_COLOR = isDarkStatusArea

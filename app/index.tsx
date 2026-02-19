@@ -49,7 +49,7 @@ const SUBTEXT_ANIMATIONS = {
 }
 
 export default function Index() {
-  // Redirect({href: '/(auth)/knowing'});
+  Redirect({href: '/(auth)/gettingReady'});
 
   const { replace, push } = useRouter();
   const [slide, setSlide] = useState(1);
