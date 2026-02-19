@@ -66,17 +66,17 @@ const ProfileTab = () => {
             {formatAge(19)}
         </AppText>
         <View className="flex-col gap-[25px]">
-            <SettingsButton text={t('change')} onPress={() => {}}/>
+            <SettingsButton text={t('change')} onPress={() => push('/editProfile')}/>
             <View className="flex-col gap-[10px]">
-                <SettingsButton text={t('saved')} onPress={() => {}}/>
-                <SettingsButton text={t('viewed')} onPress={() => {}}/>
+                <SettingsButton text={t('saved')} onPress={() => push('/savedArticles')}/>
+                <SettingsButton text={t('viewed')} onPress={() => push('/viewedArticles')}/>
             </View>
             <View className="flex-col gap-[10px]">
                 <SettingsButton text={t('language')} onPress={() => {}}/>
                 <SettingsButton text={t('theme')} onPress={() => {}}/>
             </View>
             <View className="flex-col gap-[10px]">
-                <SettingsButton text={t('about_app.title')} onPress={() => {}}/>
+                <SettingsButton text={t('about_app.title')} onPress={() => push('/(screens)/aboutApp')}/>
                 <SettingsButton text={t('logout')} onPress={() => {}}/>
                 <Button
                 onPress={() => {}}

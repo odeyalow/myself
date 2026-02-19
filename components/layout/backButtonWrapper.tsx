@@ -7,12 +7,24 @@ import useIconColor from "@/hooks/useIconColor";
 import { useRouter } from "expo-router";
 import ArrowLeft from '@/assets/icons/system/arrow_left.svg';
 
-const BackButtonWrapper = ({ title, innerRoute, className, children }: { title: string, innerRoute?: boolean; className?: string; children: React.ReactNode }) => {
+const BackButtonWrapper = ({
+        title,
+        innerRoute,
+        scrollLock,
+        className,
+        children 
+    }: {
+        title: string,
+        innerRoute?: boolean;
+        scrollLock?: boolean
+        className?: string;
+        children: React.ReactNode
+    }) => {
     const color = useIconColor();
     const { back } = useRouter();
 
     return (
-        <ScreenWrapper>
+        <ScreenWrapper scrollLock={scrollLock}>
             <View className="flex-row gap-[10px] items-center mb-[20px]">
                 <Button
                 appearance="accentLight"
@@ -28,7 +40,7 @@ const BackButtonWrapper = ({ title, innerRoute, className, children }: { title: 
                     {title}
                 </AppText>
             </View>
-            <View className={className}>
+            <View className={`relative ${className}`}>
                 {children}
             </View>
         </ScreenWrapper>

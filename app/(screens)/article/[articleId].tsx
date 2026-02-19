@@ -1,10 +1,13 @@
 import BackButtonWrapper from "@/components/layout/backButtonWrapper";
-import ArticleButton from "@/components/ui/articleButton";
 import AppText from "@/components/ui/appText";
 import { View } from "react-native";
 import RouteArticle from "@/components/layout/routeArticle";
+import Button from "@/components/ui/button";
 
 import { useTranslation } from "react-i18next";
+import useIconColor from "@/hooks/useIconColor";
+
+import SavedIcon from "@/assets/icons/system/saved.svg"
 
 const ARTICLE_PLACEHOLDER_DATA = [
   {
@@ -31,19 +34,28 @@ const ARTICLE_PLACEHOLDER_DATA = [
 
 const SingleArticle = () => {
     const { t } = useTranslation('common');
-
+    const color = useIconColor();
     return (
         <BackButtonWrapper
         title="Home • Cleaning"
         className="flex-col gap-[10px]"
         innerRoute>
-            <AppText
-            weight="extrabold"
-            size="bigTitle"
-            color="commonDark"
-            >
-                General cleaning
-            </AppText>
+            <View className="flex-row justify-between items-center">
+                <AppText
+                weight="extrabold"
+                size="bigTitle"
+                color="commonDark"
+                >
+                    General cleaning
+                </AppText>
+                <Button
+                appearance="accentLight"
+                className="h-[54px] min-w-[54px] aspect-square"
+                onPress={() => {}}
+                >
+                    <SavedIcon width={20} height={20} color={color}/>
+                </Button>
+            </View>
             <AppText
             weight="regular"
             size="text"
