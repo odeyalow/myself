@@ -14,23 +14,21 @@ type ErrorMessageType = 'fill_all_fields' | 'incorrect_email_format' | 'not_enou
 
 export default function RegistrationScreen() {
   const { t } = useTranslation(['auth', 'common']);
-  const { push, back, replace } = useRouter();
+  const { back, replace } = useRouter();
   const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<ErrorMessageType>(null);
 
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}$/;
 
-  const handleValidation = () => {
-    const login = email?.trim() ?? "";
-    const pass = password?.trim() ?? "";
+   const handleValidation = () => {
+    const emailTrimmed = email?.trim() ?? "";
 
-    if (!login || !pass) {
+    if (!emailTrimmed) {
       setErrorMessage("fill_all_fields");
       return;
     }
 
-    if (!emailRegex.test(login)) {
+    if (!emailRegex.test(emailTrimmed)) {
       setErrorMessage("incorrect_email_format");
       return;
     }
@@ -49,7 +47,7 @@ export default function RegistrationScreen() {
         size="smallTitle"
         color="commonLight"
         >
-          {t('login.title')}
+          {t('password_reset.title')}
         </AppText>
         <Input
         value={email}
@@ -57,14 +55,6 @@ export default function RegistrationScreen() {
         placeholder={t('email')}
         keyboardType={'default'}
         onChangeText={setEmail}
-        />
-        <Input
-        value={password}
-        isPassword
-        appearance="dark"
-        placeholder={t('password')}
-        keyboardType="default"
-        onChangeText={setPassword}
         />
         {
           errorMessage && (
@@ -76,26 +66,6 @@ export default function RegistrationScreen() {
             </AppText>
           )
         }
-       <View className="flex-row justify-between">
-         <TouchableOpacity
-            onPress={() => replace("/(auth)/passwordReset")}>
-            <AppText
-            weight="semibold"
-            size="subtext"
-            color="commonLight">
-                {t('login.forgot_password')}
-            </AppText>
-        </TouchableOpacity>
-         <TouchableOpacity
-            onPress={() => replace('/(auth)/registration')}>
-            <AppText
-            weight="semibold"
-            size="subtext"
-            color="commonLight">
-                {t('login.no_account')}
-            </AppText>
-        </TouchableOpacity>
-       </View>
         <View className="flex-row gap-[14px]">
           <Button
           onPress={() => back()}
@@ -118,10 +88,16 @@ export default function RegistrationScreen() {
             weight="semibold"
             size="text"
             color="commonDark">
-            {t('login.button')}
+            {t('password_reset.button')}
             </AppText>
           </Button>
         </View>
+        <AppText
+        weight="regular"
+        size="description"
+        color="muted">
+            {t('password_reset.description')}
+        </AppText>
       </View>
     </KeyboardDismissView>
   );

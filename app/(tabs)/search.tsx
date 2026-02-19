@@ -172,7 +172,7 @@ const SearchTab = () => {
                             weight="bold"
                             size="smallTitle"
                             color="commonDark"
-                            className="mb-[5px]">
+                            className="mb-[5px] text-center">
                                 {t('no_result.title')}
                             </AppText>
                             <AppText

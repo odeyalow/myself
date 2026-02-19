@@ -14,7 +14,7 @@ type ErrorMessageType = 'fill_all_fields' | 'pass_missmatch' | 'incorrect_email_
 
 export default function RegistrationScreen() {
   const { t } = useTranslation(['auth', 'common']);
-  const { push, back } = useRouter();
+  const { push, back, replace } = useRouter();
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [confirmPassword, setConfirmPassword] = useState<string>();
@@ -97,7 +97,7 @@ export default function RegistrationScreen() {
           )
         }
         <TouchableOpacity
-        onPress={() => push("/(auth)/login")}>
+        onPress={() => replace("/(auth)/login")}>
           <AppText
           weight="semibold"
           size="subtext"
@@ -109,6 +109,7 @@ export default function RegistrationScreen() {
           <Button
           onPress={() => back()}
           appearance="accentDark"
+          className="justify-center"
           fullWidth>
             <AppText
             weight="semibold"
@@ -120,6 +121,7 @@ export default function RegistrationScreen() {
           <Button
           onPress={() => handleValidation()}
           appearance="light"
+          className="justify-center"
           fullWidth>
             <AppText
             weight="semibold"
