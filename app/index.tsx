@@ -49,7 +49,7 @@ const SUBTEXT_ANIMATIONS = {
 }
 
 export default function Index() {
-  Redirect({href: '/(tabs)/home'});
+  // Redirect({href: '/(auth)/knowing'});
 
   const { replace, push } = useRouter();
   const [slide, setSlide] = useState(1);
@@ -251,7 +251,7 @@ export default function Index() {
                       <AppText
                       size="text"
                       weight="semibold"
-                      color="commonDark"
+                      color="forceDark"
                       className="text-center leading-[20px]">
                         {t('slide_3.start')}
                       </AppText>

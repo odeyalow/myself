@@ -99,7 +99,7 @@ export default function RegistrationScreen() {
         <View className="flex-row gap-[14px]">
           <Button
           onPress={() => back()}
-          appearance="accentDark"
+          appearance="forceAccentDark"
           className="justify-center"
           fullWidth>
             <AppText
@@ -111,13 +111,13 @@ export default function RegistrationScreen() {
           </Button>
           <Button
           onPress={() => handleValidation()}
-          appearance="light"
+          appearance="forceLight"
           className="justify-center"
           fullWidth>
             <AppText
             weight="semibold"
             size="text"
-            color="commonDark">
+            color="forceDark">
             {t('login.button')}
             </AppText>
           </Button>

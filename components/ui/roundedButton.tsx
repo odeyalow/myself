@@ -28,15 +28,15 @@ const PRESS_LOCK_MS = 300;
 const BUTTON_APPEARANCES = {
     light: {
         bg: 'bg-white',
-        text: 'commonDark'
+        text: 'forceDark'
     },
     dark: {
         bg: 'bg-dark',
-        text: 'commonLight'
+        text: 'forceLight'
     },
     muted: {
         bg: 'bg-darkGray',
-        text: 'commonLight'
+        text: 'forceLight'
     },
 }
 

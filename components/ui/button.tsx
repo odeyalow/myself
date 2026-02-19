@@ -8,7 +8,7 @@ import Animated, {
 
 interface ButtonProps {
     onPress: () => void;
-    appearance: "light" | "dark" | "accentLight" | "accentDark",
+    appearance: "light" | "dark" | "accentLight" | "accentDark" | "forceLight" | "forceDark" | "forceAccentLight" | "forceAccentDark",
     fullWidth?: boolean;
     disabled?: boolean;
     className?: string;
@@ -19,7 +19,11 @@ const BUTTON_APPEARANCES = {
     light: "bg-light dark:bg-dark",
     dark: "bg-dark dark:bg-light",
     accentLight: "bg-lightGray dark:bg-darkGray",
-    accentDark: "bg-darkGray dark:bg-lightGray"
+    accentDark: "bg-darkGray dark:bg-lightGray",
+    forceLight: "bg-light",
+    forceDark: "bg-dark",
+    forceAccentLight: "bg-lightGray",
+    forceAccentDark: "bg-darkGray"
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
